@@ -1,2 +1,2 @@
 # todoApp
-TODO feito com Javascript
+to-do feito com Javascript
