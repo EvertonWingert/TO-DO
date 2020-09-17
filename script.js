@@ -1,12 +1,14 @@
 const inputEl = document.getElementById("input-todo");
 const btnAddEl = document.getElementById("create");
-const todolistEl = document.getElementById("list-group");
+var todolistEl = document.getElementById("list-group");
+todolistEl.innerHTML = `Sem to-do`;
 var todoList = [];
+
+
 const geraId = () => {
     return Math.random() *100;
 
 }
-
 
 function createTodo(){
     if(inputEl.value == '') return
@@ -19,6 +21,7 @@ function createTodo(){
     renderTodo();
 }
 function deleteTodo(key) {
+    
     console.log(key)
     
     todoList.forEach((conteudo,i) => {
@@ -26,7 +29,7 @@ function deleteTodo(key) {
             todoList.splice(i,1);
         }
     })
-    
+
     renderTodo();
 }
 function updateTodo(newValue,key){  
@@ -37,21 +40,28 @@ function updateTodo(newValue,key){
     })
 }
 function renderTodo(){
-    var list = "";
-    todoList.forEach((conteudo) => {
-        list +=  `<li key="${conteudo.id}" class="todoItem">
-                    <a contentEditable="true" onBlur="updateTodo(this,key)" id="conteudo">${conteudo.conteudo}</a>
-                    <button onClick="deleteTodo(${conteudo.id})"> Deletar </button>   
-                  </li>
-                    `
-            
-    })
-    todolistEl.innerHTML = list;       
+    if(todoList.length == 0){
+        todolistEl.innerHTML = `Sem to-do`;
+        
+    }else { 
+        var list = "";
+        todoList.forEach((conteudo) => {
+            list +=  `<li key="${conteudo.id}" class="todoItem">
+                        <a contentEditable="true" onBlur="updateTodo(this,key)" id="conteudo">${conteudo.conteudo}</a>
+                        <button onClick="deleteTodo(${conteudo.id})"> Deletar </button>   
+                    </li>
+                        `
+                
+        })
+        todolistEl.innerHTML = list;
+    }    
     
 }
 
+/*
 for(let i = 0; i < 30; i++){
     let todo = {id:geraId(), conteudo:i }
     todoList.push(todo);
 }
 renderTodo();
+*/
