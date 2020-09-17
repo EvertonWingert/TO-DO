@@ -1,2 +1,2 @@
 # todoApp
-Todo feito com js e bootstrap 
+TODO feito com Javascript
