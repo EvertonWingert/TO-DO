@@ -10,17 +10,23 @@
 </head>
 <body>
     <div class="app-bg"> 
-        <h1>Todo</h1>
-        <div class="app-input">
-            <input type="text" id="input-todo" name="Digite uma nota" placeholder="Digite uma nota" value="">
-            <button onClick="createTodo()" id="create">Adicionar</button>
-        </div>
+        <header>
+            <h1>TO-DO</h1>
+        </header>
 
-        <div class="app-todo">
-            <div id="list-group">
-               
+        <section class="app-content">
+            <div class="app-input">
+                <input type="text" id="input-todo" name="Digite uma nota" placeholder="Digite uma nota" value="">
+                <button onClick="createTodo()" id="create">Adicionar</button>
             </div>
-        </div>
+    
+            <div class="app-todo">
+                <ul id="list-group">
+                   
+                </ul>
+            </div>
+        </section>
+        
         <footer>
             <p>Projeto desenvolvido por Everton Wingert</p>
             <a href="https://github.com/EvertonWingert/todoApp">Github</a>

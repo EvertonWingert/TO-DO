@@ -1,7 +1,8 @@
 const inputEl = document.getElementById("input-todo");
 const btnAddEl = document.getElementById("create");
 var todolistEl = document.getElementById("list-group");
-todolistEl.innerHTML = `Sem to-do`;
+const todoEmpty = `<div><p class="todo-empty">Sem to-do</p></div>`
+todolistEl.innerHTML = todoEmpty;
 var todoList = [];
 
 
@@ -41,7 +42,7 @@ function updateTodo(newValue,key){
 }
 function renderTodo(){
     if(todoList.length == 0){
-        todolistEl.innerHTML = `Sem to-do`;
+        todolistEl.innerHTML = todoEmpty;
         
     }else { 
         var list = "";

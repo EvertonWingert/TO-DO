@@ -7,6 +7,8 @@
 }
 ul{
     list-style: none;
+    margin: 0;
+    padding: 0;
 }
 :root {
     --main-bg-color: #006a71;
@@ -31,6 +33,11 @@ ul{
 
 
 }
+.app-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 .app-todo{
     background-color: #fff;
@@ -39,6 +46,7 @@ ul{
     border-radius: 5px;
     padding: 5px;
     overflow: auto;
+    
 }
 
 .app-input {
@@ -49,6 +57,7 @@ ul{
     padding: 10px;
     margin: 10px;
     
+    
 }
 .app-input button {
     background-color: #fff;
@@ -57,6 +66,8 @@ ul{
     height: 40px;
     padding: 5px;
     border-radius: 5px;
+    box-shadow: 3px 3px 5px 6px #006269;
+    cursor: pointer;
 }
 .app-input input {
     background-color: #fff;
@@ -67,24 +78,31 @@ ul{
     margin: 10px;
     padding: 5px;
     border-radius: 5px;
+    box-shadow: 3px 3px 5px 6px #006269;
 }
 .todoItem {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px;
-    border-left: 8px solid var(--main-bg-color);;
+    border-left: 8px solid var(--main-bg-color);
     margin-bottom: 10px;
+    border-bottom:1px solid #c7c7c7;
 }
 .todoItem button {
     background-color: var(--main-bg-color);
     color: #fff;
     border: none;
     border-radius: 5px;
-    height: 40px
+    height: 40px;
+    cursor: pointer;
 }
 .todoItem a {
     flex: 1;
+}
+.todo-empty{
+    text-align: center;
+    
 }
 
 footer a {
