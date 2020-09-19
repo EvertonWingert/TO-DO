@@ -11,28 +11,30 @@
 <body>
     <div class="app-bg"> 
         <header>
-            <h1>TO-DO</h1>
+            <h1>Notas</h1>
         </header>
 
         <section class="app-content">
-            <div class="app-add">
-                <input type="text" id="input-todo" name="Digite uma nota" placeholder="Digite uma nota" value="">
-                <button onClick="createTodo()" id="create">Adicionar</button>
-            </div>
+            <form class="app-add" id="form">
+                <input type="text" id="input-todo" name="Digite uma nota" placeholder="Digite uma nota" value="" required>
+                <button id="create">Adicionar</button>
+            </form>
     
-            <div class="app-todo">
-                <div>
-                    <div class="remaning">
-                        <span id="total"></span>
-                        <p>Restantes</p>
-                    </div>
-                    <ul id="list-group">
-                        
-                    </ul>
+            <ul class="app-todo" id="list-group">
 
+            </ul>
+           
+            <div class="footer-todo">
+                <div class="remaning">
+                    <span id="total"></span>
+                    <p>Restantes</p>
                 </div>
-
+                <div>
+                    <button id="delete-all" onclick="deleteAllTodos()">Deletar todas</button> 
+                </div>
+                     
             </div>
+
         </section>
         
         <footer>

@@ -1,23 +1,41 @@
-const inputEl = document.getElementById("input-todo");
+
 const btnAddEl = document.getElementById("create");
-var todolistEl = document.getElementById("list-group");
+const todolistEl = document.getElementById("list-group");
 const todoEmpty = `<div><p class="todo-empty">Sem to-do</p></div>`
 const restanteEL = document.getElementById("total");
-todolistEl.innerHTML = todoEmpty;
-var todoList = [];
+const deleteALL = document.getElementById("delete-all");
+const todoForm = document.getElementById("form");
+var todoList = JSON.parse(localStorage.getItem("todo"));
 
+
+todolistEl.innerHTML = todoEmpty;
+
+if (todoList == null) {
+    todoList = [];
+}else{
+    renderTodo();
+}
+
+todoForm.addEventListener('submit', (e) => {
+    const inputEl = document.getElementById("input-todo");
+    e.preventDefault();
+    createTodo(inputEl.value);
+    inputEl.value = '';
+})
 
 function todoFactory(conteudo){
     let id = (Math.random() *100);
     return {
         id,
-        conteudo
+        conteudo,
+        marked:false,
     }
 }
-function createTodo(){
-    if(inputEl.value == '') return
-    todoList.push(todoFactory(inputEl.value));
-    inputEl.value = '';
+
+function createTodo(text){
+    let todo = todoFactory(text);
+    todoList.push(todo);
+    localStorage.setItem('todo',JSON.stringify(todoList));
     renderTodo();
 }
 function deleteTodo(key) {
@@ -25,6 +43,7 @@ function deleteTodo(key) {
         return item.id === key;
     });
     todoList.splice(index,1);
+    localStorage.setItem('todo',JSON.stringify(todoList));
     renderTodo();
 }
 function updateTodo(novoValor,key){ 
@@ -32,23 +51,52 @@ function updateTodo(novoValor,key){
         return item.id === key;
     });
     todoList[index].conteudo = novoValor.innerHTML;
+    localStorage.setItem('todo',JSON.stringify(todoList));
 }
+function deleteAllTodos(){
+    todoList.length = 0;
+    localStorage.setItem('todo',JSON.stringify(todoList));
+    renderTodo();
+}
+
 
 function renderTodo(){
     if(todoList.length == 0){
         todolistEl.innerHTML = todoEmpty;
         restanteEL.innerHTML = 0;
     }else { 
-        var list = "";
+       todolistEl.innerHTML = '';
+       
         todoList.forEach((conteudo) => {
+            let liElement = document.createElement('li');
+            let aElement = document.createElement('a');
+            let buttonDeleteElement =document.createElement('button');
+        
+            liElement.setAttribute('class','todoItem');
+            liElement.setAttribute('id','todo');
+        
+            aElement.setAttribute('id','conteudo');
+            aElement.setAttribute('contentEditable','true');
+            aElement.innerText = conteudo.conteudo;
+            aElement.addEventListener('blur', () => {
+                updateTodo(aElement,conteudo.id);
+            })
+        
+            buttonDeleteElement.setAttribute('id','deleteTodo');
+            buttonDeleteElement.innerText = "Deletar";
+        
+            buttonDeleteElement.addEventListener('click', () =>{
+                deleteTodo(conteudo.id);
+            });
+        
             
-            list +=  `<li key="${conteudo.id}" class="todoItem" id="todo">
-                        <a contentEditable="true" onBlur="updateTodo(this,${conteudo.id})" id="conteudo">${conteudo.conteudo}</a>
-                        <button onClick="deleteTodo(${conteudo.id})" id="deleteTodo"> Deletar </button>   
-                      </li>
-                        `
+        
+            liElement.appendChild(aElement);
+            liElement.appendChild(buttonDeleteElement);
+            todolistEl.appendChild(liElement);
         })
-        todolistEl.innerHTML = list;
+            
+        
         restanteEL.innerHTML = todoList.length; 
     } 
 }
