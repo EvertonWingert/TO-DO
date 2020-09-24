@@ -1,2 +1,2 @@
-# todoApp
-to-do feito com Javascript
+# TO-DOApp
+TO-DO feito com Javascript
