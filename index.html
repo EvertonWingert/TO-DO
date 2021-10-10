@@ -1,54 +1,50 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>TODO</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='./css/style.css'>
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <title>TODO</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <link rel='stylesheet' type='text/css' media='screen' href='./css/style.css'>
 
-</head>
+    </head>
 
-<body>
-    <div class="app-bg">
-        <header>
-            <h1>Notas</h1>
-        </header>
+    <body>
+        <div class="app-bg">
+            <header>
+                <h1>Notas</h1>
+            </header>
 
-        <section class="app-content">
-            <form class="app-add" id="form">
-                <input type="text" id="input-todo" name="Digite uma nota" placeholder="Digite uma nota" value=""
-                    required>
-                <button id="create">Adicionar</button>
-            </form>
+            <section class="app-content">
+                <form class="app-add" id="form">
+                    <input type="text" id="input-todo" name="Digite uma nota" placeholder="Digite uma nota" required>
+                    <button type="submit" id="create">Adicionar</button>
+                </form>
 
-            <ul class="app-todo" id="list-group">
+                <ul class="app-todo" id="list-group">
+                </ul>
 
-            </ul>
-
-            <div class="footer-todo">
-                <div class="remaning">
-                    <span id="total"></span>
-                    <p>Restantes</p>
+                <div class="footer-todo">
+                    <div class="remaning">
+                        <span id="total"></span>
+                        <p>Restantes</p>
+                    </div>
+                    <div>
+                        <button id="delete-all">Deletar todas as notas</button>
+                    </div>
                 </div>
-                <div>
-                    <button id="delete-all">Deletar todas</button>
-                </div>
+            </section>
 
-            </div>
-
-        </section>
-
-        <footer>
-            <p>Projeto desenvolvido por Everton Wingert</p>
-            <a href="https://github.com/EvertonWingert/todoApp">Github</a>
-        </footer>
-    </div>
-    <script type="module" src="./js/index.js"></script>
-    
+            <footer>
+                <p>Projeto desenvolvido por Everton Wingert</p>
+                <a href="https://github.com/EvertonWingert/todoApp">Github</a>
+            </footer>
+        </div>
+        <script type="module" src="./js/index.js"></script>
 
 
-</body>
+
+    </body>
 
 </html>
