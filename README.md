@@ -11,6 +11,6 @@
     <p>Javascript</p>
   </li>
 </ul>
-<p><a href="https://evertonwingert.github.io/todo-JavaScript/" target="_blank">Online demo</a></p>
+<p><a href="https://evertonwingert.github.io/TO-DO/" target="_blank">Online demo</a></p>
 
 ![](assets/tela1.jpg)
